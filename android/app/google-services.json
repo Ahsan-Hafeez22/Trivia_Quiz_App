@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "110965471452",
+    "project_id": "trivia-quiz-app-fca52",
+    "storage_bucket": "trivia-quiz-app-fca52.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:110965471452:android:0db643bae0f23119d85c19",
+        "android_client_info": {
+          "package_name": "com.example.trivia_quiz_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwYr1TTUISgEoWcLLtMhRfdJTSU_tm5V4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

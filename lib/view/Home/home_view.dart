@@ -89,45 +89,6 @@ class _HomeViewState extends State<HomeView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // SizedBox(height: Get.height * 0.02),
-
-                // Profile Section
-                // GestureDetector(
-                // onTap: () => Get.toNamed(RoutesName.editView),
-                //   child: Card(
-                //     color: Colors.black,
-                //     child: Padding(
-                //       padding: const EdgeInsets.all(8.0),
-                // child: Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: [
-                //     CircleAvatar(
-                //       radius: 32,
-                //       backgroundImage: user?.photoURL != null
-                //           ? NetworkImage(user!.photoURL!)
-                //           : const AssetImage(ImageAssets.avatar)
-                //               as ImageProvider,
-                //     ),
-                //     const SizedBox(width: 16),
-                //     Column(
-                //       crossAxisAlignment: CrossAxisAlignment.start,
-                //       children: [
-                //         Text(
-                //           'Welcome, ${user?.displayName ?? "Guest"}!',
-                //           style: AppFonts.bold18(),
-                //         ),
-                //         Text(
-                //           user?.email ?? 'No email available',
-                //           style: TextStyle(
-                //               color: Colors.white70, fontSize: 12),
-                //         ),
-                //       ],
-                //     ),
-                //         ],
-                //       ),
-                //     ),
-                //   ),
-                // ),
                 GestureDetector(
                   onTap: () => Get.toNamed(RoutesName.editView),
                   child: Container(

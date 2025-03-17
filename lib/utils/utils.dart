@@ -12,9 +12,9 @@ class Utils {
   static toastMessage(String msg) {
     Fluttertoast.showToast(
         msg: msg,
-        toastLength: Toast.LENGTH_LONG,
+        toastLength: Toast.LENGTH_SHORT,
         backgroundColor: Colors.black,
-        gravity: ToastGravity.TOP,
+        gravity: ToastGravity.BOTTOM,
         textColor: Colors.white);
   }
 

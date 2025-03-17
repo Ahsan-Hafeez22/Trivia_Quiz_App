@@ -2,9 +2,11 @@ import 'package:get/get.dart';
 import 'package:trivia_quiz_app/res/routes/routes_name.dart';
 import 'package:trivia_quiz_app/view/Auth/forgot_password.dart';
 import 'package:trivia_quiz_app/view/Home/edit_user_screen.dart';
+import 'package:trivia_quiz_app/view/Home/history_screen.dart';
 import 'package:trivia_quiz_app/view/Home/home_view.dart';
 import 'package:trivia_quiz_app/view/Auth/Login/login_view.dart';
 import 'package:trivia_quiz_app/view/Auth/Sign%20Up/register_view.dart';
+import 'package:trivia_quiz_app/view/Home/question_detail_screen.dart';
 import 'package:trivia_quiz_app/view/Home/quiz_screen.dart';
 import 'package:trivia_quiz_app/view/Home/quiz_selection_view.dart';
 import 'package:trivia_quiz_app/view/Home/result_screen.dart';
@@ -57,6 +59,16 @@ class AppRoutes {
         name: RoutesName.resultScreen,
         page: () => ResultScreen(),
         transition: Transition.rightToLeft,
+      ),
+      GetPage(
+        name: RoutesName.historyScreen,
+        page: () => HistoryScreen(),
+        transition: Transition.circularReveal,
+      ),
+      GetPage(
+        name: RoutesName.questionDetailScreen,
+        page: () => QuestionsDetailScreen(),
+        transition: Transition.downToUp,
       ),
     ];
   }

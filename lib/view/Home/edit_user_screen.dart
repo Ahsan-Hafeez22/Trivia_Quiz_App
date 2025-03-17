@@ -30,6 +30,7 @@ class _EditUserScreenState extends State<EditUserScreen> {
   final FocusNode focusNode2 = FocusNode();
   final FocusNode focusNode3 = FocusNode();
   final FocusNode focusNode4 = FocusNode();
+  bool loading = false;
   final _formKey = GlobalKey<FormState>();
   final auth = AuthService();
   FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
@@ -82,6 +83,9 @@ class _EditUserScreenState extends State<EditUserScreen> {
   Future<void> postDataToFireStore(
       String firstName, String lastName, String phoneNumber) async {
     if (_formKey.currentState!.validate()) {
+      setState(() {
+        loading = true;
+      });
       final user = auth.getCurrentUser();
       if (user != null) {
         try {
@@ -94,7 +98,9 @@ class _EditUserScreenState extends State<EditUserScreen> {
           await auth.updateUserProfile(
             fullName: '$firstName $lastName',
           );
-
+          setState(() {
+            loading = false;
+          });
           Get.snackbar("Success", "Profile updated successfully",
               snackPosition: SnackPosition.BOTTOM,
               backgroundColor: Colors.green,
@@ -103,6 +109,9 @@ class _EditUserScreenState extends State<EditUserScreen> {
         } catch (e) {
           Get.snackbar("Error", e.toString(),
               backgroundColor: Colors.red, colorText: Colors.white);
+          setState(() {
+            loading = false;
+          });
         }
       }
     }
@@ -250,6 +259,7 @@ class _EditUserScreenState extends State<EditUserScreen> {
                       const SizedBox(height: 20),
                       CustomButton(
                         title: 'Update Profile',
+                        loading: loading,
                         onPress: () {
                           postDataToFireStore(
                               firstNameController.text.trim(),

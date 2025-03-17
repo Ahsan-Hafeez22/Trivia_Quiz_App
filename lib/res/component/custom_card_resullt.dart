@@ -12,8 +12,8 @@ Card customResultCard({
   required int totalQuestionCount,
   Timestamp? dateTime, // Nullable parameter
   double? textSize = 32,
-  double? width = 150,
-  double? height = 150,
+  double? width = 120,
+  double? height = 120,
 }) {
   // Use current date-time if `dateTime` is null
   DateTime dt = dateTime?.toDate() ?? DateTime.now();

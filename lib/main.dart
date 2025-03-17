@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:trivia_quiz_app/firebase_options.dart';
 import 'package:trivia_quiz_app/res/routes/routes.dart';
 import 'package:trivia_quiz_app/res/routes/routes_name.dart';
+import 'package:trivia_quiz_app/view_model/controller/internet/internet_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,6 +13,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  Get.put(InternetController());
   runApp(const MyApp());
 }
 

@@ -19,6 +19,7 @@ class StoreQuizDataService {
   }) async {
     try {
       loadingController.setLoadingValue(true);
+
       final quizId = FirebaseFirestore.instance
           .collection('users')
           .doc(userId)
@@ -28,13 +29,10 @@ class StoreQuizDataService {
 
       double winningPercentage = (correctCount / totalQuestions) * 100;
 
-      // ✅ Convert List<Result> to List<Map<String, dynamic>> with enums as Strings
       List<Map<String, dynamic>> questionsAsMap = questionsList
           .map((question) => {
-                "type":
-                    typeValues.reverse[question.type], // Convert enum to String
-                "difficulty":
-                    difficultyValues.reverse[question.difficulty], // ✅ Fix
+                "type": typeValues.reverse[question.type],
+                "difficulty": difficultyValues.reverse[question.difficulty],
                 "category": question.category,
                 "question": question.question,
                 "correct_answer": question.correctAnswer,
@@ -55,12 +53,11 @@ class StoreQuizDataService {
         'date_time': Timestamp.now(),
         'questions': questionsAsMap,
       });
-      loadingController.setLoadingValue(false);
     } catch (e) {
       log(e.toString());
-      loadingController.setLoadingValue(false);
-
       throw Exception(e);
+    } finally {
+      loadingController.setLoadingValue(false);
     }
   }
 

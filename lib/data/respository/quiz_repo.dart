@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:trivia_quiz_app/data/network/network_api_service.dart';
-import 'package:trivia_quiz_app/model/quizModel.dart';
+import 'package:trivia_quiz_app/model/quiz_model.dart';
 import 'package:trivia_quiz_app/res/url/app_urls.dart';
 
 class QuizRepo {

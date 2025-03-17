@@ -43,7 +43,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
           ? () => FocusScope.of(context).requestFocus(widget.focusNode2)
           : null,
       inputFormatters: [
-        LengthLimitingTextInputFormatter(45)
+        LengthLimitingTextInputFormatter(widget.type == 'email'
+            ? 40
+            : widget.type == 'phone'
+                ? 13
+                : 15)
       ], // Limit input length
       keyboardType: widget.type == 'email'
           ? TextInputType.emailAddress

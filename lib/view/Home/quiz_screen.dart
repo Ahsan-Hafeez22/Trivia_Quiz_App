@@ -26,7 +26,7 @@ class _QuizScreenState extends State<QuizScreen> {
   final storeQuizDataService = StoreQuizDataService();
   final authService = AuthService();
   var unescape = HtmlUnescape();
-  final loadingController = Get.put(LoadingController());
+  final loadingController = Get.find<LoadingController>();
 
   int currentQuestionIndex = 0;
   Timer? timer;
@@ -163,9 +163,8 @@ class _QuizScreenState extends State<QuizScreen> {
           : SafeArea(
               child: Scaffold(
                 backgroundColor: Colors.transparent,
-                body: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                body: SingleChildScrollView(
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   child: Column(
                     children: [
                       Row(
@@ -226,46 +225,51 @@ class _QuizScreenState extends State<QuizScreen> {
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(height: Get.height * 0.03),
-                      ListView.builder(
-                        itemCount: optionList.length,
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) {
-                          return GestureDetector(
-                            onTap: isAnswered
-                                ? null
-                                : () {
-                                    setState(() {
-                                      isAnswered = true;
-                                      if (optionList[index] == correctAnswer) {
-                                        optionColor[index] = Colors.green;
-                                        correctAnswerCount++;
-                                      } else {
-                                        optionColor[index] = Colors.red;
-                                        incorrectAnswerCount++;
-                                      }
-                                    });
+                      SizedBox(
+                        height: Get.height * 0.4,
+                        child: ListView.builder(
+                          itemCount: optionList.length,
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            return GestureDetector(
+                              onTap: isAnswered
+                                  ? null
+                                  : () {
+                                      setState(() {
+                                        isAnswered = true;
+                                        if (optionList[index] ==
+                                            correctAnswer) {
+                                          optionColor[index] = Colors.green;
+                                          correctAnswerCount++;
+                                        } else {
+                                          optionColor[index] = Colors.red;
+                                          incorrectAnswerCount++;
+                                        }
+                                      });
 
-                                    Future.delayed(
-                                        const Duration(milliseconds: 500), () {
-                                      goToNextQuestion();
-                                    });
-                                  },
-                            child: AnimatedContainer(
-                              duration: const Duration(milliseconds: 300),
-                              margin: const EdgeInsets.only(bottom: 10),
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 10, horizontal: 25),
-                              decoration: BoxDecoration(
-                                color: optionColor[index],
-                                borderRadius: BorderRadius.circular(10),
+                                      Future.delayed(
+                                          const Duration(milliseconds: 500),
+                                          () {
+                                        goToNextQuestion();
+                                      });
+                                    },
+                              child: AnimatedContainer(
+                                duration: const Duration(milliseconds: 300),
+                                margin: const EdgeInsets.only(bottom: 10),
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 10, horizontal: 25),
+                                decoration: BoxDecoration(
+                                  color: optionColor[index],
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Text(
+                                  unescape.convert(optionList[index]),
+                                  style: AppFonts.normal16(color: Colors.black),
+                                ),
                               ),
-                              child: Text(
-                                unescape.convert(optionList[index]),
-                                style: AppFonts.normal16(color: Colors.black),
-                              ),
-                            ),
-                          );
-                        },
+                            );
+                          },
+                        ),
                       ),
                     ],
                   ),

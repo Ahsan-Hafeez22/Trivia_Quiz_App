@@ -20,7 +20,7 @@ class ForgotPassword extends StatefulWidget {
 class _ForgotPasswordState extends State<ForgotPassword> {
   TextEditingController emailController = TextEditingController();
   FocusNode focusNodeEmail = FocusNode();
-  final fpc = Get.put(ForgotPasswordController());
+  final fpc = Get.find<ForgotPasswordController>();
   final _formKey = GlobalKey<FormState>();
   final mLocaleData =
       TriviaQuizApp.mLocate[ConfigKeysTitle.forgotPasswordScreen];

@@ -149,7 +149,7 @@ class QuestionsDetailScreenState extends State<QuestionsDetailScreen> {
                                       const SizedBox(width: 8),
                                       Expanded(
                                         child: Text(
-                                          answer,
+                                          unescape.convert(answer),
                                           style: TextStyle(
                                             color: answer == correctAnswer
                                                 ? Colors.green

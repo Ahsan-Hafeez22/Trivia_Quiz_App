@@ -27,7 +27,7 @@ class _RegisterViewState extends State<RegisterView> {
   final FocusNode focusNode3 = FocusNode();
   final FocusNode focusNode4 = FocusNode();
   final _formKey = GlobalKey<FormState>();
-  final signupController = Get.put(SignupController());
+  final signupController = Get.find<SignupController>();
   final mLocaleData = TriviaQuizApp.mLocate[ConfigKeysTitle.registerScreen];
   @override
   Widget build(BuildContext context) {

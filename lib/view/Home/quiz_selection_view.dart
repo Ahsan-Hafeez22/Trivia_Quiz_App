@@ -19,7 +19,7 @@ class QuizSelectionView extends StatefulWidget {
 
 class _QuizSelectionViewState extends State<QuizSelectionView> {
   final TextEditingController _controller = TextEditingController(text: '10');
-  final quizController = Get.put(QuizController());
+  final quizController = Get.find<QuizController>();
   Map<String, dynamic> data = Get.arguments ?? {};
 
   /// Dropdown Lists

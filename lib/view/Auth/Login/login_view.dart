@@ -26,7 +26,7 @@ class _LoginViewState extends State<LoginView> {
   FocusNode focusNodeEmail = FocusNode();
   FocusNode focusNodePassword = FocusNode();
   final _formKey = GlobalKey<FormState>();
-  final loginController = Get.put(LoginController());
+  final loginController = Get.find<LoginController>();
   final googleSinginController = Get.put(GoogleController());
   final mLocaleData = TriviaQuizApp.mLocate[ConfigKeysTitle.loginScreen];
 

@@ -120,8 +120,7 @@ class _HomeViewState extends State<HomeView> {
                                   user?.displayName ?? "Guest",
                                   style: AppFonts.bold18(),
                                   overflow: TextOverflow.ellipsis,
-                                  maxLines:
-                                      1, // Ensures it truncates if too long
+                                  maxLines: 1,
                                   softWrap: true,
                                 ),
                               ),
@@ -132,7 +131,7 @@ class _HomeViewState extends State<HomeView> {
                                   style: const TextStyle(
                                       color: Colors.white70, fontSize: 12),
                                   overflow: TextOverflow.ellipsis,
-                                  maxLines: 1, // Ensures email doesn't overflow
+                                  maxLines: 1,
                                   softWrap: true,
                                 ),
                               ),
@@ -152,30 +151,40 @@ class _HomeViewState extends State<HomeView> {
                   ),
                 ),
 
-                Center(
-                  child: Text(
-                    'Choose a category to test your knowledge with an exciting quiz! Challenge yourself and see how much you know. Ready to begin?',
-                    style: AppFonts.normal14(),
-                    textAlign: TextAlign.center,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    children: [
+                      Center(
+                        child: Text(
+                          'Choose a category to test your knowledge with an exciting quiz! Challenge yourself and see how much you know. Ready to begin?',
+                          style: AppFonts.normal14(),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Wrap(
+                        spacing: 6,
+                        runSpacing: 0,
+                        alignment: WrapAlignment.center,
+                        children: [
+                          _quizCategoryTile(
+                              Icons.science, "Science & Nature", Colors.blue),
+                          _quizCategoryTile(Icons.computer, "General Knowledge",
+                              Colors.purple),
+                          _quizCategoryTile(Icons.pets, "Animal", Colors.cyan),
+                          _quizCategoryTile(
+                              Icons.sports, "Sport", Colors.green),
+                          _quizCategoryTile(
+                              Icons.color_lens, "Art", Colors.cyan),
+                          _quizCategoryTile(Icons.car_repair_outlined,
+                              "Vehicles", Colors.orange),
+                          _quizCategoryTile(
+                              Icons.movie, "Celebrities", Colors.red),
+                        ],
+                      ),
+                    ],
                   ),
-                ),
-                const SizedBox(height: 8),
-                Wrap(
-                  spacing: 6,
-                  runSpacing: 0,
-                  alignment: WrapAlignment.center,
-                  children: [
-                    _quizCategoryTile(
-                        Icons.science, "Science & Nature", Colors.blue),
-                    _quizCategoryTile(
-                        Icons.computer, "General Knowledge", Colors.purple),
-                    _quizCategoryTile(Icons.pets, "Animal", Colors.cyan),
-                    _quizCategoryTile(Icons.sports, "Sport", Colors.green),
-                    _quizCategoryTile(Icons.color_lens, "Art", Colors.cyan),
-                    _quizCategoryTile(
-                        Icons.car_repair_outlined, "Vehicles", Colors.orange),
-                    _quizCategoryTile(Icons.movie, "Celebrities", Colors.red),
-                  ],
                 ),
 
                 SizedBox(height: Get.height * 0.04),

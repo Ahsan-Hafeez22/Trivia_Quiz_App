@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:html_unescape/html_unescape.dart';
 import 'package:trivia_quiz_app/model/quiz_model.dart';
 import 'package:trivia_quiz_app/res/font/app_fonts.dart';
+import 'package:trivia_quiz_app/res/routes/routes_name.dart';
 
 class QuestionsDetailScreen extends StatefulWidget {
   const QuestionsDetailScreen({super.key});
@@ -83,6 +84,7 @@ class QuestionsDetailScreenState extends State<QuestionsDetailScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
                               padding: const EdgeInsets.symmetric(
@@ -100,16 +102,23 @@ class QuestionsDetailScreenState extends State<QuestionsDetailScreen> {
                                 ),
                               ),
                             ),
-                            const SizedBox(width: 8),
-                            Expanded(
-                              child: Text(
-                                category,
-                                textAlign: TextAlign.right,
-                                style: TextStyle(
-                                  color: Colors.grey[600],
-                                  fontStyle: FontStyle.italic,
-                                ),
-                                overflow: TextOverflow.ellipsis,
+                            Text(
+                              category,
+                              textAlign: TextAlign.right,
+                              style: TextStyle(
+                                color: Colors.grey[700],
+                                fontSize: 16,
+                                fontStyle: FontStyle.italic,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            GestureDetector(
+                              onTap: () =>
+                                  Get.toNamed(RoutesName.questionChatBotScreen),
+                              child: Icon(
+                                Icons.screen_search_desktop_outlined,
+                                color: Colors.green,
+                                size: 30,
                               ),
                             ),
                           ],

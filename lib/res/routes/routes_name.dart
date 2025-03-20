@@ -10,4 +10,5 @@ class RoutesName {
   static const String resultScreen = "/result_screen";
   static const String historyScreen = "/history_screen";
   static const String questionDetailScreen = "/question_detail_screen";
+  static const String questionChatBotScreen = "/question_chatbot_screen";
 }

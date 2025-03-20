@@ -11,6 +11,7 @@ import 'package:trivia_quiz_app/view/Home/history_screen.dart';
 import 'package:trivia_quiz_app/view/Home/home_view.dart';
 import 'package:trivia_quiz_app/view/Auth/Login/login_view.dart';
 import 'package:trivia_quiz_app/view/Auth/Sign%20Up/register_view.dart';
+import 'package:trivia_quiz_app/view/Home/question_chatbot_screen.dart';
 import 'package:trivia_quiz_app/view/Home/question_detail_screen.dart';
 import 'package:trivia_quiz_app/view/Home/quiz_screen.dart';
 import 'package:trivia_quiz_app/view/Home/quiz_selection_view.dart';
@@ -79,6 +80,11 @@ class AppRoutes {
         name: RoutesName.questionDetailScreen,
         page: () => QuestionsDetailScreen(),
         transition: Transition.downToUp,
+      ),
+      GetPage(
+        name: RoutesName.questionChatBotScreen,
+        page: () => QuestionChatBotScreen(),
+        transition: Transition.upToDown,
       ),
     ];
   }

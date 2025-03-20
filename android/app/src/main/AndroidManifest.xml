@@ -5,7 +5,7 @@
 
 
     <application
-        android:label="trivia_quiz_app"
+        android:label="Trivia App"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
